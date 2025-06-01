@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F9FAFB; /* Off-white (Tailwind gray-50) */
+            color: #1F2937; /* Dark Grey/Charcoal (Tailwind gray-800) */
+        }
+        /* Header Styles */
+        #header {
+            background-color: #111827; /* Black/Dark Gray (Tailwind gray-900) */
+        }
+        #header a, #header #mobile-menu-button {
+            color: #D1D5DB; /* Light Gray (Tailwind gray-300) for header links */
+        }
+        #header a:hover, #header #mobile-menu-button:hover {
+            color: #14B8A6; /* Accent color for hover */
+        }
+        #header .resume-button {
+            border-color: #14B8A6;
+            color: #14B8A6;
+        }
+        #header .resume-button:hover {
+            background-color: #14B8A6;
+            color: #FFFFFF;
+        }
+        #mobile-menu {
+            background-color: #1F2937; /* Slightly lighter black for mobile menu dropdown */
+        }
+
+        /* General Heading Styles */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            color: #111827; /* Darkest Grey (Tailwind gray-900) */
+        }
+        .accent-color {
+            color: #14B8A6; /* Vibrant Teal */
+        }
+        .bg-accent-color {
+            background-color: #14B8A6;
+        }
+        .border-accent-color {
+            border-color: #14B8A6;
+        }
+        .text-secondary {
+            color: #6B7280; /* Medium Grey (Tailwind gray-500) */
+        }
+        .section-line::before {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 2px;
+            background-color: #14B8A6;
+            margin-bottom: 1rem;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #E5E7EB; /* Tailwind gray-200 */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #9CA3AF; /* Tailwind gray-400 */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #14B8A6;
+        }
+        /* Animation for scroll reveal (can be reused across pages) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .content-card {
+            background-color: #FFFFFF; /* Pure white for cards */
+            border: 1px solid #E5E7EB; /* Tailwind gray-200 for subtle border */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out shadow-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold tracking-tight">
+                Your<span class="accent-color">Name</span>
+            </a>
+            <nav class="hidden md:flex space-x-6 items-center">
+                <a href="index.html">Home</a>
+                <a href="sap.html">SAP</a>
+                <a href="cloud.html">Cloud</a>
+                <a href="ai.html">AI</a>
+                <a href="architecture.html">Architecture</a>
+                <a href="contact.html">Contact</a>
+                <a href="your-resume-link.pdf" target="_blank" class="px-4 py-2 border rounded-md resume-button transition-colors duration-300">
+                    Resume
+                </a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-2xl focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 right-0 shadow-lg">
+            <nav class="flex flex-col space-y-2 p-6">
+                <a href="index.html" class="block py-2 mobile-link">Home</a>
+                <a href="sap.html" class="block py-2 mobile-link">SAP</a>
+                <a href="cloud.html" class="block py-2 mobile-link">Cloud</a>
+                <a href="ai.html" class="block py-2 mobile-link">AI</a>
+                <a href="architecture.html" class="block py-2 mobile-link">Architecture</a>
+                <a href="contact.html" class="block py-2 mobile-link">Contact</a>
+                <a href="your-resume-link.pdf" target="_blank" class="mt-2 block text-center px-4 py-2 border rounded-md resume-button transition-colors duration-300">
+                    Resume
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="pt-24 md:pt-28">
+
+        <section id="hero-landing" class="py-20 md:py-32 reveal">
+            <div class="container mx-auto px-6 text-left">
+                <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold mb-4 leading-tight">
+                    Portfolio<span class="accent-color">.</span>
+                </h1>
+                <p class="max-w-2xl text-lg md:text-xl text-secondary mb-8">
+                    Check out some of my latest case studies and projects. I've worked with startups, agencies, and large corporations to design and build products used by millions.
+                </p>
+                <div>
+                    <a href="contact.html" class="bg-accent-color text-white font-semibold px-8 py-3 rounded-md hover:bg-opacity-80 transition-colors duration-300 text-lg">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="featured-work" class="py-16 md:py-24 bg-white reveal">
+             <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center section-line relative mx-auto">My Latest Work</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="content-card rounded-lg shadow-xl p-6 hover:shadow-2xl transition-shadow duration-300 flex flex-col">
+                        <img src="https://placehold.co/600x400/E5E7EB/14B8A6?text=Project+Alpha" alt="Project Alpha" class="rounded-md mb-4 w-full h-48 object-cover">
+                        <h3 class="text-2xl font-semibold mb-2">Project Alpha</h3>
+                        <p class="text-secondary text-sm mb-3 flex-grow">A modern minimalist renovation project focusing on clean lines and user experience for a real estate platform.</p>
+                        <div class="mb-3">
+                            <span class="text-xs font-mono text-gray-500 bg-gray-100 px-2 py-1 rounded-full mr-1">UI/UX Design</span>
+                            <span class="text-xs font-mono text-gray-500 bg-gray-100 px-2 py-1 rounded-full">Web Development</span>
+                        </div>
+                        <a href="#" class="text-accent-color font-semibold hover:underline self-start">View Case Study <i class="fas fa-arrow-right text-xs ml-1"></i></a>
+                    </div>
+                    <div class="content-card rounded-lg shadow-xl p-6 hover:shadow-2xl transition-shadow duration-300 flex flex-col">
+                        <img src="https://placehold.co/600x400/E5E7EB/14B8A6?text=Service+Beta" alt="Service Beta" class="rounded-md mb-4 w-full h-48 object-cover">
+                        <h3 class="text-2xl font-semibold mb-2">Service Beta Integration</h3>
+                        <p class="text-secondary text-sm mb-3 flex-grow">Integrating a complex third-party API to enhance functionality for a cloud-based analytics dashboard.</p>
+                         <div class="mb-3">
+                            <span class="text-xs font-mono text-gray-500 bg-gray-100 px-2 py-1 rounded-full mr-1">Cloud Solutions</span>
+                            <span class="text-xs font-mono text-gray-500 bg-gray-100 px-2 py-1 rounded-full">API Integration</span>
+                        </div>
+                        <a href="#" class="text-accent-color font-semibold hover:underline self-start">Learn More <i class="fas fa-arrow-right text-xs ml-1"></i></a>
+                    </div>
+                    <div class="content-card rounded-lg shadow-xl p-6 hover:shadow-2xl transition-shadow duration-300 flex flex-col">
+                        <img src="https://placehold.co/600x400/E5E7EB/14B8A6?text=AI+Gamma+Tool" alt="AI Gamma Tool" class="rounded-md mb-4 w-full h-48 object-cover">
+                        <h3 class="text-2xl font-semibold mb-2">AI Gamma Tool</h3>
+                        <p class="text-secondary text-sm mb-3 flex-grow">Developing a machine learning model for predictive text analysis within a customer support application.</p>
+                         <div class="mb-3">
+                            <span class="text-xs font-mono text-gray-500 bg-gray-100 px-2 py-1 rounded-full mr-1">Artificial Intelligence</span>
+                            <span class="text-xs font-mono text-gray-500 bg-gray-100 px-2 py-1 rounded-full">NLP</span>
+                        </div>
+                        <a href="#" class="text-accent-color font-semibold hover:underline self-start">Explore Project <i class="fas fa-arrow-right text-xs ml-1"></i></a>
+                    </div>
+                     </div>
+            </div>
+        </section>
+
+        <section id="other-works" class="py-16 md:py-24 reveal">
+            <div class="container mx-auto px-6">
+                <h2 class="text-2xl md:text-3xl font-semibold mb-10 text-center text-gray-700">More Highlights</h2>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="content-card p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-paint-brush text-2xl accent-color mr-3"></i>
+                            <h4 class="text-xl font-semibold">My Figma Design System</h4>
+                        </div>
+                        <p class="text-sm text-secondary mb-2">A comprehensive design system built in Figma to ensure consistency and speed up development.</p>
+                        <span class="text-xs font-mono text-gray-400">Design System</span>
+                    </div>
+                    <div class="content-card p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                         <div class="flex items-center mb-3">
+                            <i class="fas fa-book-open text-2xl accent-color mr-3"></i>
+                            <h4 class="text-xl font-semibold">My UI Design Book</h4>
+                        </div>
+                        <p class="text-sm text-secondary mb-2">"Practical UI" - A guide to designing intuitive, accessible, and beautiful user interfaces.</p>
+                        <span class="text-xs font-mono text-gray-400">Book / Publication</span>
+                    </div>
+                    <div class="content-card p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-cogs text-2xl accent-color mr-3"></i>
+                            <h4 class="text-xl font-semibold">Lean Design Systems</h4>
+                        </div>
+                        <p class="text-sm text-secondary mb-2">An exploration and implementation of creating efficient and scalable lean design systems.</p>
+                        <span class="text-xs font-mono text-gray-400">Process / Methodology</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer class="py-10 text-center border-t border-gray-200 bg-gray-800 text-gray-400">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="https://github.com/yourusername" target="_blank" class="text-xl hover:text-accent-color transition-colors"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/yourusername" target="_blank" class="text-xl hover:text-accent-color transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://twitter.com/yourusername" target="_blank" class="text-xl hover:text-accent-color transition-colors"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p class="text-sm font-mono">
+                Designed & Built by Your Name &copy; <span id="current-year"></span>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = mobileMenu.querySelectorAll('.mobile-link');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuButton.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                const icon = mobileMenuButton.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            revealElements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) { 
+                    el.classList.add('visible');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        document.addEventListener('DOMContentLoaded', () => {
+            revealOnScroll(); // Initial check
+            const currentYearEl = document.getElementById('current-year');
+            if (currentYearEl) {
+                currentYearEl.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
+</body>
+</html>

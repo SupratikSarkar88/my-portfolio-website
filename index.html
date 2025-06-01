@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Your Name</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F9FAFB; /* Off-white (Tailwind gray-50) */
+            color: #1F2937; /* Dark Grey/Charcoal (Tailwind gray-800) */
+        }
+        #header {
+            background-color: #111827; /* Black/Dark Gray (Tailwind gray-900) */
+        }
+        #header a, #header #mobile-menu-button {
+            color: #D1D5DB; /* Light Gray (Tailwind gray-300) for header links */
+        }
+        #header a:hover, #header #mobile-menu-button:hover {
+            color: #14B8A6; /* Accent color for hover */
+        }
+        #header .resume-button { /* Added for consistency if resume button is re-added to other pages */
+            border-color: #14B8A6;
+            color: #14B8A6;
+        }
+        #header .resume-button:hover {
+            background-color: #14B8A6;
+            color: #FFFFFF;
+        }
+        #mobile-menu {
+            background-color: #1F2937; 
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            color: #111827; 
+        }
+        .accent-color { color: #14B8A6; }
+        .bg-accent-color { background-color: #14B8A6; }
+        .text-secondary { color: #6B7280; }
+        .section-line::before {
+            content: ''; display: block; width: 80px; height: 2px;
+            background-color: #14B8A6; margin-bottom: 1rem; margin-left:auto; margin-right:auto;
+        }
+        .content-card {
+            background-color: #FFFFFF;
+            border: 1px solid #E5E7EB; /* Tailwind gray-200 */
+        }
+        .interactive-card { /* For the special cards like "Beaches" */
+            background-color: #FFFFFF;
+            border-radius: 0.75rem; /* 12px */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+        .interactive-card img {
+            transition: transform 0.3s ease-out;
+        }
+        .interactive-card:hover img {
+            transform: scale(1.05);
+        }
+        .reveal {
+            opacity: 0; transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out shadow-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold tracking-tight">
+                Your<span class="accent-color">Logo</span> </a>
+            <nav class="hidden md:flex space-x-6 items-center">
+                <a href="index.html" class="font-semibold accent-color">Portfolio</a> <a href="sap.html">SAP</a>
+                <a href="cloud.html">Cloud</a>
+                <a href="ai.html">AI</a>
+                <a href="architecture.html">Architecture</a>
+                <a href="contact.html">Contact</a>
+                 <a href="your-resume-link.pdf" target="_blank" class="px-4 py-2 border rounded-md resume-button transition-colors duration-300">
+                    Resume
+                </a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-2xl focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 right-0 shadow-lg">
+            <nav class="flex flex-col space-y-2 p-6">
+                <a href="index.html" class="block py-2 mobile-link font-semibold accent-color">Portfolio</a>
+                <a href="sap.html" class="block py-2 mobile-link">SAP</a>
+                <a href="cloud.html" class="block py-2 mobile-link">Cloud</a>
+                <a href="ai.html" class="block py-2 mobile-link">AI</a>
+                <a href="architecture.html" class="block py-2 mobile-link">Architecture</a>
+                <a href="contact.html" class="block py-2 mobile-link">Contact</a>
+                <a href="your-resume-link.pdf" target="_blank" class="mt-2 block text-center px-4 py-2 border rounded-md resume-button transition-colors duration-300">
+                    Resume
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="pt-24 md:pt-28">
+
+        <section id="portfolio-hero" class="py-16 md:py-20 reveal">
+            <div class="container mx-auto px-6">
+                <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold mb-5">
+                    portfolio<span class="accent-color">.</span>
+                </h1>
+                <p class="max-w-3xl text-lg md:text-xl text-secondary mb-10">
+                    Check out some of my latest product design case studies. 
+                    I've worked for startups, agencies, corporations, and government and have led projects to design products used by millions of people.
+                </p>
+
+                <div class="my-12 p-6 md:p-8 bg-white rounded-xl shadow-xl border border-gray-200 reveal">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
+                        <div class="flex items-center mb-4 md:mb-0">
+                            <input type="checkbox" id="makeitpop" class="form-checkbox h-5 w-5 accent-color rounded text-teal-600 focus:ring-teal-500" checked>
+                            <label for="makeitpop" class="ml-2 text-gray-700 font-medium">Make it pop</label>
+                        </div>
+                        <div class="flex items-center w-full md:w-1/3">
+                            <input type="range" min="0" max="100" value="50" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-color">
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+                        <div class="interactive-card group">
+                            <img src="https://placehold.co/600x400/E0E7FF/3730A3?text=Modern+Renovation" alt="Modern Renovation" class="w-full h-56 object-cover">
+                            <div class="p-5">
+                                <h3 class="text-xl font-semibold mb-1">A modern minima renovation</h3>
+                                <p class="text-sm text-gray-500 mb-1">estliving.com</p>
+                                <p class="text-xs text-gray-400">2 mins ago</p>
+                            </div>
+                        </div>
+                        <div class="interactive-card group relative">
+                            <img src="https://placehold.co/600x400/DBEAFE/1E40AF?text=Beaches" alt="Beaches" class="w-full h-56 object-cover">
+                            <button class="absolute top-4 right-4 bg-white/70 backdrop-blur-sm p-2 rounded-full text-red-500 hover:text-red-600 transition-colors">
+                                <i class="fas fa-heart text-xl"></i>
+                            </button>
+                            <div class="p-5">
+                                <h3 class="text-xl font-semibold mb-1">Beaches</h3>
+                                <p class="text-sm text-gray-500">Favourites</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="case-studies" class="py-16 md:py-24 bg-gray-100 reveal"> <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center section-line relative mx-auto">Case Studies</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="content-card rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                        <img src="https://placehold.co/600x400/F3F4F6/14B8A6?text=Case+Study+1" alt="Case Study 1" class="rounded-md mb-4 w-full h-48 object-cover">
+                        <h3 class="text-2xl font-semibold mb-2">Figma Design System Implementation</h3>
+                        <p class="text-secondary text-sm mb-3 flex-grow">Led the creation and rollout of a new design system, improving design consistency and development speed by 30%.</p>
+                        <a href="#" class="text-accent-color font-semibold hover:underline self-start mt-auto">Read Full Case Study <i class="fas fa-arrow-right text-xs ml-1"></i></a>
+                    </div>
+                    <div class="content-card rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                        <img src="https://placehold.co/600x400/F3F4F6/14B8A6?text=Case+Study+2" alt="Case Study 2" class="rounded-md mb-4 w-full h-48 object-cover">
+                        <h3 class="text-2xl font-semibold mb-2">E-commerce Platform Redesign</h3>
+                        <p class="text-secondary text-sm mb-3 flex-grow">Redesigned a major e-commerce platform, resulting in a 25% increase in conversion rates and improved user satisfaction.</p>
+                        <a href="#" class="text-accent-color font-semibold hover:underline self-start mt-auto">Read Full Case Study <i class="fas fa-arrow-right text-xs ml-1"></i></a>
+                    </div>
+                    <div class="content-card rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                        <img src="https://placehold.co/600x400/F3F4F6/14B8A6?text=Case+Study+3" alt="Case Study 3" class="rounded-md mb-4 w-full h-48 object-cover">
+                        <h3 class="text-2xl font-semibold mb-2">Mobile App for Healthcare</h3>
+                        <p class="text-secondary text-sm mb-3 flex-grow">Designed and prototyped a mobile application for patient-doctor communication, focusing on accessibility and ease of use.</p>
+                        <a href="#" class="text-accent-color font-semibold hover:underline self-start mt-auto">Read Full Case Study <i class="fas fa-arrow-right text-xs ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <section id="latest-work-snippets" class="py-16 md:py-24 reveal">
+            <div class="container mx-auto px-6">
+                <h2 class="text-2xl md:text-3xl font-semibold mb-10 text-center text-gray-700">Some of My Latest Work</h2>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="content-card p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <img src="https://placehold.co/100x100/E0E7FF/3730A3?text=FDS" alt="Figma Design System Icon" class="w-16 h-16 rounded-md mb-4"> <h4 class="text-xl font-semibold mb-1">My Figma Design System</h4>
+                        <p class="text-sm text-secondary">Design system</p>
+                    </div>
+                    <div class="content-card p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <img src="https://placehold.co/100x100/DBEAFE/1E40AF?text=PUI" alt="Practical UI Book Icon" class="w-16 h-16 rounded-md mb-4"> <h4 class="text-xl font-semibold mb-1">My UI Design Book</h4>
+                        <p class="text-sm text-secondary">Book</p>
+                    </div>
+                    <div class="content-card p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                         <img src="https://placehold.co/100x100/C7D2FE/4338CA?text=LDS" alt="Lean Design System Icon" class="w-16 h-16 rounded-md mb-4"> <h4 class="text-xl font-semibold mb-1">Creating a Lean Design System</h4>
+                        <p class="text-sm text-secondary">Design system</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="py-10 text-center border-t border-gray-200 bg-gray-800 text-gray-400">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="https://github.com/yourusername" target="_blank" class="text-xl hover:text-accent-color transition-colors"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/yourusername" target="_blank" class="text-xl hover:text-accent-color transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://twitter.com/yourusername" target="_blank" class="text-xl hover:text-accent-color transition-colors"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p class="text-sm font-mono">
+                Designed & Built by Your Name &copy; <span id="current-year"></span>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = mobileMenu.querySelectorAll('.mobile-link');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuButton.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                const icon = mobileMenuButton.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            revealElements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) { 
+                    el.classList.add('visible');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        document.addEventListener('DOMContentLoaded', () => {
+            revealOnScroll(); 
+            const currentYearEl = document.getElementById('current-year');
+            if (currentYearEl) {
+                currentYearEl.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
+</body>
+</html>
